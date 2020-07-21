@@ -5,9 +5,33 @@ const OngController = require("./controllers/OngController");
 const IncidentController = require("./controllers/IncidentController");
 const ProfileController = require("./controllers/ProfileController");
 const SessionController = require("./controllers/SessionController");
-const { join } = require("./database/connection");
+const UserController = require("./controllers/UserController");
+const UserSessionController = require("./controllers/UserSessionController");
 
 const routes = express.Router();
+
+routes.get("/users", UserController.index);
+
+routes.post(
+  "/users",
+  celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      name: Joi.string().required(),
+      email: Joi.string().required().email(),
+    }),
+  }),
+  UserController.create
+);
+
+routes.post(
+  "/usersession",
+  celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      id: Joi.string().required(),
+    }),
+  }),
+  UserSessionController.create
+);
 
 routes.post(
   "/sessions",

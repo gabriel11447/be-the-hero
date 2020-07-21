@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native'
-import Constants from 'expo-constants'
+import { StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
 
 export default StyleSheet.create({
   container: {
@@ -44,7 +44,7 @@ export default StyleSheet.create({
   incident: {
     padding: 24,
     borderRadius: 8,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF',
     marginBottom: 16,
   },
 
@@ -71,5 +71,5 @@ export default StyleSheet.create({
     color: '#e02041',
     fontSize: 15,
     fontWeight: 'bold'
-  }
-})
+  },
+});
